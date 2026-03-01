@@ -1,4 +1,10 @@
 {
+  "name": "cleanmadurai-root",
+  "private": true,
+  "scripts": {
+    "build": "cd madurai && npm install && npm run build",
+    "install-all": "npm install && cd madurai && npm install"
+  },
   "dependencies": {
     "@supabase/supabase-js": "^2.98.0"
   }
