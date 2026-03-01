@@ -32,7 +32,27 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-console.log('App Starting...');
+// Global error handling for early detection
+window.onerror = function(msg, url, line, col, error) {
+  console.error('Global Error:', msg, 'at', url, ':', line, ':', col, error);
+  const root = document.getElementById('root');
+  if (root && root.innerHTML.includes('Loading Application')) {
+    root.innerHTML = `
+      <div style="padding: 2rem; color: #dc2626; font-family: sans-serif; text-align: center;">
+        <h2 style="margin-bottom: 0.5rem;">Launch Error</h2>
+        <p style="color: #6b7280; font-size: 14px; margin-bottom: 1rem;">The application failed to initialize.</p>
+        <pre style="background: #fee2e2; padding: 1rem; border-radius: 8px; font-size: 12px; display: inline-block; text-align: left; max-width: 100%; overflow-x: auto;">${msg}\n${error?.stack || ''}</pre>
+      </div>
+    `;
+  }
+};
+
+window.onunhandledrejection = function(event) {
+  console.error('Unhandled Rejection:', event.reason);
+};
+
+console.log('App Initializing...');
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ErrorBoundary>
@@ -40,7 +60,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </ErrorBoundary>
   </React.StrictMode>
 );
-console.log('App Rendered.');
+
+console.log('App Render Command Sent.');
 
 // Register Service Worker for PWA and Notifications
 if ('serviceWorker' in navigator) {

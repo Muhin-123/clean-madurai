@@ -37,10 +37,22 @@
 
 <body>
   <div id="root">
-    <div style="display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: sans-serif;">
-      <p style="color: #666;">Loading Application...</p>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; font-family: sans-serif;">
+      <p style="color: #666; margin-bottom: 1rem;">Loading Application...</p>
+      <div id="debug-msg" style="color: #999; font-size: 11px;">Initializing JavaScript...</div>
     </div>
   </div>
+  <script>
+    window.onerror = function(msg, url, line) {
+      document.getElementById('debug-msg').innerHTML = '<span style="color: #dc2626;">Error: ' + msg + ' (' + line + ')</span>';
+    };
+    // Timeout if script takes too long
+    setTimeout(function() {
+      if (document.getElementById('root').innerHTML.includes('Loading Application')) {
+        document.getElementById('debug-msg').innerHTML += '<br><span style="color: #F48C06;">Warning: Asset loading timed out.</span>';
+      }
+    }, 10000);
+  </script>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 

@@ -10,6 +10,7 @@ import './App.css';
  * CLEAN MADURAI – Smart Waste & Sanitation System
  */
 export default function App() {
+  console.log('App Rendering...');
   return (
     <AuthProvider>
       <AppProvider>
@@ -34,3 +35,4 @@ export default function App() {
     </AuthProvider>
   );
 }
+console.log('App Module Loaded.');
