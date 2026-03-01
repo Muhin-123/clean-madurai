@@ -1,8 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import { useAuth } from '../context/AuthContext';
 import ProtectedRoute from './ProtectedRoute';
-import RoleBasedRoute from './RoleBasedRoute';
 
 // Layout
 import DashboardLayout from '../components/layout/DashboardLayout';
@@ -11,21 +10,19 @@ import DashboardLayout from '../components/layout/DashboardLayout';
 import Landing from '../pages/landing/Landing';
 import Login from '../pages/auth/Login';
 
-// Role-based Dashboards (Lazy loading)
-const CitizenDashboard = lazy(() => import('../pages/citizen/CitizenDashboard'));
-const CitizenComplaints = lazy(() => import('../pages/citizen/CitizenComplaints'));
-const CitizenBioWaste = lazy(() => import('../pages/citizen/CitizenBioWaste'));
+// Dashboards (Static imports to rule out chunk loading issues)
+import CitizenDashboard from '../pages/citizen/CitizenDashboard';
+import CitizenComplaints from '../pages/citizen/CitizenComplaints';
+import CitizenBioWaste from '../pages/citizen/CitizenBioWaste';
 
-const OfficerDashboard = lazy(() => import('../pages/officer/OfficerDashboard'));
-const QRGenerator = lazy(() => import('../pages/officer/QRGenerator'));
-const WorkerAnalytics = lazy(() => import('../pages/officer/WorkerAnalytics'));
-const Complaints = lazy(() => import('../pages/Complaints'));
-const SmartBins = lazy(() => import('../pages/SmartBins'));
+import OfficerDashboard from '../pages/officer/OfficerDashboard';
+import QRGenerator from '../pages/officer/QRGenerator';
+import WorkerAnalytics from '../pages/officer/WorkerAnalytics';
+import Complaints from '../pages/Complaints';
+import SmartBins from '../pages/SmartBins';
 
-const WorkerDashboard = lazy(() => import('../pages/worker/WorkerDashboard'));
-
-// Shared
-const Settings = lazy(() => import('../pages/Settings'));
+import WorkerDashboard from '../pages/worker/WorkerDashboard';
+import Settings from '../pages/Settings';
 
 /**
  * RoleRedirect Component

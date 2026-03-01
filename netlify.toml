@@ -1,7 +1,6 @@
 [build]
-  base = "madurai"
   command = "npm run build"
-  publish = "dist"
+  publish = "madurai/dist"
 
 [[redirects]]
   from = "/*"
