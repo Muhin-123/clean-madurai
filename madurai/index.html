@@ -44,16 +44,13 @@
   </div>
   <script>
     window.onerror = function(msg, url, line) {
-      document.getElementById('debug-msg').innerHTML = '<span style="color: #dc2626;">Error: ' + msg + ' (' + line + ')</span>';
+      document.getElementById('debug-msg').innerHTML = '<span style="color: #dc2626;">Global Error: ' + msg + ' (' + line + ')</span>';
     };
-    // Timeout if script takes too long
-    setTimeout(function() {
-      if (document.getElementById('root').innerHTML.includes('Loading Application')) {
-        document.getElementById('debug-msg').innerHTML += '<br><span style="color: #F48C06;">Warning: Asset loading timed out.</span>';
-      }
-    }, 10000);
+    function onMainStart() {
+      document.getElementById('debug-msg').innerHTML = 'React Booting...';
+    }
   </script>
-  <script type="module" src="/src/main.jsx"></script>
+  <script type="module" src="/src/main.jsx" onerror="document.getElementById('debug-msg').innerHTML='<span style=\'color: #dc2626;\'>Failed to load /src/main.jsx (404?)</span>'"></script>
 </body>
 
 </html>

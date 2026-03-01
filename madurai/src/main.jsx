@@ -51,6 +51,8 @@ window.onunhandledrejection = function(event) {
   console.error('Unhandled Rejection:', event.reason);
 };
 
+if (window.onMainStart) window.onMainStart();
+
 console.log('App Initializing...');
 
 ReactDOM.createRoot(document.getElementById('root')).render(
