@@ -1,10 +1,10 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
 import { useAuth } from '../../context/AuthContext';
 import {
   ClipboardList, CheckCircle2, Clock, AlertCircle,
   MapPin, ChevronRight, X, Loader2, ThumbsDown, Play,
-  CheckSquare, Trash2, Camera, Send, MessageSquare
+  CheckSquare, Camera, Send, MessageSquare
 } from 'lucide-react';
 import {
   collection, query, where, onSnapshot, orderBy,
@@ -59,7 +59,7 @@ const STATUS_CONFIG = {
   },
 };
 
-// Normalize various status formats used across the app into a consistent key
+// Normalize status key
 function normalizeStatus(raw) {
   const s = (raw || '').toString().toLowerCase().trim();
   if (!s) return 'pending';
@@ -121,7 +121,7 @@ function StatCard({ label, value, icon: Icon, iconColor, delay = 0 }) {
   );
 }
 
-function TaskCard({ task, onSelect, onAccept, delay = 0 }) {
+function TaskCard({ task, onSelect, onAccept }) {
   const status = normalizeStatus(task.status);
   const cfg = STATUS_CONFIG[status] || STATUS_CONFIG.pending;
   const [localLoading, setLocalLoading] = useState(false);
@@ -190,7 +190,7 @@ function TaskModal({ task, onClose }) {
   const [afterPhoto, setAfterPhoto] = useState(null);
   const [notes, setNotes] = useState('');
   const [showAfterPhotoInput, setShowAfterPhotoInput] = useState(false);
-  const { currentUser, userProfile, updatePoints } = useAuth();
+  const { currentUser, updatePoints } = useAuth();
 
   const updateStatus = async (newStatus, extraFields = {}) => {
     if (newStatus === 'completed' && !afterPhoto) {
@@ -460,7 +460,7 @@ function TaskModal({ task, onClose }) {
 // ─── Main Worker Dashboard ─────────────────────────────────────────────────
 
 export default function WorkerDashboard() {
-  const { currentUser, userProfile, updatePoints } = useAuth();
+  const { currentUser, userProfile } = useAuth();
   const [allTasks, setAllTasks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedTask, setSelectedTask] = useState(null);
