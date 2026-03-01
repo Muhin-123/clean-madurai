@@ -32,6 +32,7 @@ class ErrorBoundary extends React.Component {
   }
 }
 
+console.log('App Starting...');
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ErrorBoundary>
@@ -39,6 +40,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </ErrorBoundary>
   </React.StrictMode>
 );
+console.log('App Rendered.');
 
 // Register Service Worker for PWA and Notifications
 if ('serviceWorker' in navigator) {
