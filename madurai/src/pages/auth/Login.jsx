@@ -197,7 +197,7 @@ export default function Login() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="bg-white/95 dark:bg-navy-800/95 backdrop-blur-xl border border-white/40 dark:border-white/10 rounded-3xl shadow-2xl p-8"
+          className="bg-white/95 dark:bg-navy-800/95 backdrop-blur-xl rounded-3xl shadow-2xl p-8"
         >
           <div className="mb-6">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">

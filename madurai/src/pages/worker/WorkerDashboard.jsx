@@ -517,7 +517,7 @@ export default function WorkerDashboard() {
       >
         <div>
           <p className="text-xs font-bold text-[#457B9D]/60 uppercase tracking-[0.25em] mb-1">Field Operations</p>
-          <h1 className="text-4xl font-black text-[#1D3557] tracking-tight">My Tasks</h1>
+          <h1 className="text-3xl sm:text-4xl font-black text-[#1D3557] tracking-tight">My Tasks</h1>
           <p className="text-[#457B9D]/70 font-medium mt-1">Manage your assigned civic complaints</p>
         </div>
         <div className="hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-[#1D3557] text-white font-bold text-sm shadow-lg shadow-[#1D3557]/20">

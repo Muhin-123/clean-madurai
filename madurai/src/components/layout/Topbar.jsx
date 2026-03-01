@@ -100,7 +100,7 @@ export default function Topbar() {
           <Menu size={20} />
         </button>
         <div>
-          <h2 className="text-xl font-black text-[#1B4332] tracking-tight">Welcome, {firstName}</h2>
+          <h2 className="text-lg md:text-xl font-black text-[#1B4332] tracking-tight truncate max-w-[120px] sm:max-w-none">Welcome, {firstName}</h2>
           <div className="flex items-center gap-2">
             <p className="text-[10px] font-bold text-[#2D6A4F]/50 uppercase tracking-widest">Madurai Civic Intelligence</p>
             <span className="text-[10px] text-[#2D6A4F]/30">•</span>

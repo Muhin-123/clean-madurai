@@ -35,13 +35,13 @@ class ErrorBoundary extends React.Component {
 // Global error handling for early detection
 window.onerror = function(msg, url, line, col, error) {
   console.error('Global Error:', msg, 'at', url, ':', line, ':', col, error);
-  const root = document.getElementById('root');
-  if (root && root.innerHTML.includes('Loading Application')) {
-    root.innerHTML = `
-      <div style="padding: 2rem; color: #dc2626; font-family: sans-serif; text-align: center;">
-        <h2 style="margin-bottom: 0.5rem;">Launch Error</h2>
-        <p style="color: #6b7280; font-size: 14px; margin-bottom: 1rem;">The application failed to initialize.</p>
-        <pre style="background: #fee2e2; padding: 1rem; border-radius: 8px; font-size: 12px; display: inline-block; text-align: left; max-width: 100%; overflow-x: auto;">${msg}\n${error?.stack || ''}</pre>
+  const debugMsg = document.getElementById('debug-msg');
+  if (debugMsg) {
+    debugMsg.innerHTML = `
+      <div style="padding: 1rem; color: #dc2626; font-family: sans-serif; text-align: left; background: #fee2e2; border-radius: 8px; margin-top: 1rem;">
+        <p style="font-weight: 800; margin: 0 0 4px 0;">LAUNCH ERROR</p>
+        <p style="font-size: 11px; margin: 0 0 8px 0;">${msg}</p>
+        <pre style="font-size: 10px; opacity: 0.7; overflow: auto; max-height: 100px; white-space: pre-wrap;">${error?.stack || ''}</pre>
       </div>
     `;
   }
@@ -50,8 +50,6 @@ window.onerror = function(msg, url, line, col, error) {
 window.onunhandledrejection = function(event) {
   console.error('Unhandled Rejection:', event.reason);
 };
-
-if (window.onMainStart) window.onMainStart();
 
 console.log('App Initializing...');
 
@@ -65,6 +63,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 console.log('App Render Command Sent.');
 
+/*
 // Register Service Worker for PWA and Notifications
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -73,3 +72,4 @@ if ('serviceWorker' in navigator) {
       .catch(err => console.error('Service Worker registration failed:', err));
   });
 }
+*/

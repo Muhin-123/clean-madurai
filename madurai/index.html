@@ -10,18 +10,17 @@
     content="Clean Madurai – Smart Bio-Waste &amp; Civic Management System. Sell bio-waste easily, track civic complaints in real-time, and help build a cleaner Madurai." />
   
   <script>
-    // Critical Diagnostics: Catch errors before React even loads
+    // Robust Diagnostic Catch-all
     window.onerror = function(msg, url, line, col, error) {
-      var root = document.getElementById('root');
-      var debugMsg = document.getElementById('debug-msg');
-      var errorText = msg + (line ? ' (Line: ' + line + ')' : '');
-      if (debugMsg) debugMsg.innerHTML = '<span style="color: #dc2626; font-weight: bold;">Error: ' + errorText + '</span>';
-      console.error('Diagnostic Error:', msg, url, line, col, error);
+      document.body.innerHTML = `
+        <div style="padding: 2rem; font-family: sans-serif; background: #fff1f2; color: #991b1b; min-height: 100vh;">
+          <h1 style="font-size: 1.5rem; margin-bottom: 0.5rem;">CRITICAL ERROR</h1>
+          <p style="font-weight: bold; margin-bottom: 1rem;">${msg}</p>
+          <pre style="font-size: 12px; background: #fff; padding: 1rem; border-radius: 8px; border: 1px solid #fecaca; overflow: auto;">${error?.stack || 'No stack trace available'}</pre>
+          <p style="margin-top: 1rem; font-size: 13px;">If you see this, the React bundle failed to initialize. Check if Firebase config is correct and assets are loading.</p>
+        </div>
+      `;
     };
-    function onMainStart() {
-      var debugMsg = document.getElementById('debug-msg');
-      if (debugMsg) debugMsg.innerHTML = 'React initializing components...';
-    }
   </script>
 
   <link rel="manifest" href="/manifest.json" />
@@ -38,7 +37,7 @@
       <div style="text-align: center; padding: 2rem;">
         <p style="color: #1B4332; font-weight: 800; font-size: 1.25rem; margin-bottom: 0.5rem; letter-spacing: -0.025em;">CLEAN MADURAI</p>
         <p style="color: #666; font-size: 0.875rem; margin-bottom: 1.5rem;">Loading smart city intelligence...</p>
-        <div id="debug-msg" style="color: #999; font-size: 11px; font-family: monospace; background: rgba(0,0,0,0.03); padding: 0.5rem 1rem; rounded: 8px;">Waiting for JavaScript...</div>
+        <div id="debug-msg" style="color: #999; font-size: 11px; font-family: monospace; background: rgba(0,0,0,0.03); padding: 0.5rem 1rem; rounded: 8px;">Loading Application Diagnostics...</div>
       </div>
     </div>
   </div>

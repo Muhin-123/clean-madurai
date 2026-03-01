@@ -161,7 +161,7 @@ export default function CitizenDashboard() {
       >
         <div>
           <p className="text-xs font-bold text-[#2D6A4F]/60 uppercase tracking-[0.25em] mb-1">Citizen Portal</p>
-          <h1 className="text-4xl font-black text-[#1B4332] tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-black text-[#1B4332] tracking-tight">
             Hello, {userProfile?.name?.split(' ')[0] || 'Citizen'} 👋
           </h1>
           <p className="text-[#2D6A4F]/70 font-medium mt-1">Your impact on Madurai's future starts here</p>

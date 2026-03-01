@@ -312,7 +312,7 @@ export default function OfficerDashboard() {
       >
         <div>
           <p className="text-xs font-bold text-[#9D0208]/60 uppercase tracking-[0.25em] mb-1">Administrative</p>
-          <h1 className="text-4xl font-black text-[#370617] tracking-tight">City Command</h1>
+          <h1 className="text-3xl sm:text-4xl font-black text-[#370617] tracking-tight">City Command</h1>
           <p className="text-[#9D0208]/60 font-medium mt-1">Real-time civic intelligence & control</p>
         </div>
         {criticalAlerts.length > 0 && (

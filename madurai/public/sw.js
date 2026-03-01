@@ -1,5 +1,5 @@
 /* global clients */
-const CACHE_NAME = 'clean-madurai-v1';
+const CACHE_NAME = 'clean-madurai-v2';
 const STATIC_ASSETS = [
   '/',
   '/index.html',

@@ -64,7 +64,7 @@ export default function LandingHero() {
                     transition={{ duration: 0.7 }}
                     className="flex justify-center mb-6"
                 >
-                    <div className="bg-white/10 p-4 rounded-full backdrop-blur-sm border border-white/20">
+                    <div className="bg-white/10 p-4 rounded-full backdrop-blur-sm">
                         <CleanMaduraiLogo size={80} />
                     </div>
                 </motion.div>
@@ -76,7 +76,7 @@ export default function LandingHero() {
                     transition={{ duration: 0.6, delay: 0.1 }}
                     className="flex justify-center mb-6"
                 >
-                    <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-black/30 text-white border border-white/30 backdrop-blur-md">
+                    <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-black/30 text-white backdrop-blur-md">
                         🌿 Smart City · Madurai
                     </span>
                 </motion.div>
@@ -86,9 +86,9 @@ export default function LandingHero() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-4xl md:text-6xl lg:text-8xl font-black mb-6 tracking-tighter leading-tight text-white"
+                    className="text-5xl sm:text-7xl md:text-8xl font-black mb-6 tracking-tighter leading-[0.9] text-white"
                 >
-                    CLEAN <span className="text-[#66BB6A]">MADURAI</span>
+                    CLEAN <br className="sm:hidden" /> <span className="text-[#66BB6A]">MADURAI</span>
                 </motion.h1>
 
                 {/* Subheading */}
@@ -132,7 +132,7 @@ export default function LandingHero() {
                     {['🌱 Eco-Friendly', '📍 Real-Time Tracking', '♻️ Waste Recycling', '🏙️ Smart City'].map((tag) => (
                         <span
                             key={tag}
-                            className="px-4 py-2 rounded-full text-xs md:text-sm font-medium text-white bg-black/40 border border-white/20 backdrop-blur-sm"
+                            className="px-4 py-2 rounded-full text-xs md:text-sm font-medium text-white bg-black/40 backdrop-blur-sm"
                         >
                             {tag}
                         </span>
